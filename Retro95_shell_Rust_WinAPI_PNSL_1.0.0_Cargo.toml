@@ -1,0 +1,26 @@
+[package]
+name = "retro95_shell_rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+winapi = { version = "0.3", features = [
+    "winuser",
+    "commctrl",
+    "shellapi",
+    "libloaderapi",
+    "wingdi",
+    "processthreadsapi",
+    "sysinfoapi",
+    "minwinbase",
+    "winbase",
+    "handleapi",
+    "securitybaseapi",
+] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
